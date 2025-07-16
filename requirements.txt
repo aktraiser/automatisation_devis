@@ -1,0 +1,31 @@
+# Dépendances principales
+streamlit
+pandas
+pdfplumber
+google-generativeai
+openpyxl
+python-dotenv
+
+# Fix pour le warning urllib3 sur macOS avec LibreSSL
+urllib3<2.0.0
+
+# Extraction PDF - Méthodes multiples (inspiré de Parseur.com + Cohorte.co)
+PyMuPDF
+
+# OCR et traitement d'images
+pytesseract
+Pillow
+
+# Utilitaires
+tqdm>=4.67.1
+regex>=2024.11.6
+
+# Pour la création d'exécutables
+auto-py-to-exe
+
+# Dépendances OPTIONNELLES (à installer séparément si nécessaire)
+# Pour installer ces packages, utilisez : pip install pdftotext unstructured xlrd
+# Ils nécessitent des installations système supplémentaires
+# pdftotext  # Nécessite poppler
+# unstructured  # Peut causer des conflits
+# xlrd  # Optionnel pour Excel ancien format 
