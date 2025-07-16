@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+build/
+dist/
+*.spec
+*.exe
+*.app
+AgnoStreamlit*
+auto_py_to_exe_config.json
+build_*.py
+test_*.py
+launcher.py
+run_streamlit.py
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+BUILD_INSTRUCTIONS.md
+
+# Temp files
+*.log
+*.tmp
+.env.local
+.env.*.local
