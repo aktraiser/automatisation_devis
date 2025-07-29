@@ -658,16 +658,26 @@ def inject_in_matrice_tco(df: pd.DataFrame, template_wb: openpyxl.Workbook) -> B
             # Injection durée (ligne 25)
             if duree:
                 try:
-                    duree_mois = f"{duree} mois" if duree.isdigit() else duree
-                    ws.cell(row=25, column=target_col).value = duree_mois
+                    # Injecter seulement le nombre, sans "mois"
+                    duree_value = int(duree) if duree.isdigit() else duree
+                    ws.cell(row=25, column=target_col).value = duree_value
                 except Exception as e:
                     st.warning(f"      ⚠️ Erreur durée L25: {e}")
             
             # Injection kilométrage (ligne 26) 
             if km:
                 try:
-                    km_format = f"{km} 000 km" if km.isdigit() else f"{km} km"
-                    ws.cell(row=26, column=target_col).value = km_format
+                    # Injecter seulement le nombre en milliers, sans "km"
+                    if km.isdigit():
+                        km_value = int(km) * 1000  # Convertir en valeur complète
+                    else:
+                        # Essayer d'extraire juste le nombre si déjà formaté
+                        km_value = km.replace('km', '').replace(' ', '').strip()
+                        try:
+                            km_value = int(float(km_value))
+                        except:
+                            km_value = km
+                    ws.cell(row=26, column=target_col).value = km_value
                 except Exception as e:
                     st.warning(f"      ⚠️ Erreur kilométrage L26: {e}")
         
